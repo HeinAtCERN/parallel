@@ -221,6 +221,10 @@ class JobManager(object):
                     missingRootFiles +=1
                 else:
                     rootFiles+=1
+
+                if process.jobsDone[it]:
+                    continue
+
                 #auto resubmit if job dies, take care that there was some job before and warn the user if more then 20% of jobs die 
                 #print process.name,'batch status',batchstatus, 'process.reachedBatch',process.reachedBatch, 'process status',process.status,'resubmit counter',process.resubmit[it], 'resubmit active',autoresubmit
                 if (
